@@ -85,8 +85,10 @@ class MainActivity: AppCompatActivity() {
 
         binding.bottomAppBar.setOnMenuItemClickListener {
             when(it.itemId) {
-                R.id.settings -> navController.navigate(R.id.settings, null, navAnim)
-                R.id.info -> navController.navigate(R.id.info, null, navAnim)
+                R.id.settings -> if(navController.currentDestination?.id != R.id.settings)
+                    navController.navigate(R.id.settings, null, navAnim)
+                R.id.info -> if(navController.currentDestination?.id != R.id.info)
+                    navController.navigate(R.id.info, null, navAnim)
             }
             true
         }
@@ -96,7 +98,8 @@ class MainActivity: AppCompatActivity() {
          * May not be the correct way, but convenient.
          */
         binding.bottomAppBar.setNavigationOnClickListener {
-            navController.navigate(R.id.home, null, navAnim)
+            if(navController.currentDestination?.id != R.id.home)
+                navController.navigate(R.id.home, null, navAnim)
         }
 
 
