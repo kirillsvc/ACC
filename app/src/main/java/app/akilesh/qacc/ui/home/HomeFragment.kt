@@ -1,5 +1,7 @@
 package app.akilesh.qacc.ui.home
 
+import android.content.pm.PackageInfo
+import android.content.pm.PackageManager
 import android.os.Build.VERSION.SDK_INT
 import android.os.Build.VERSION_CODES.P
 import android.os.Bundle
@@ -157,7 +159,14 @@ class HomeFragment: Fragment() {
 
     private fun insertMissing(pkgName: String) {
         Log.w("Missing in db", pkgName)
-        val packageInfo = requireContext().packageManager.getPackageInfo(pkgName, 0)
+        //val packageInfo = requireContext().packageManager.getPackageInfo(pkgName, 0)
+        val packageInfo: PackageInfo
+        try {
+            packageInfo = requireContext().packageManager.getPackageInfo(pkgName, 0)
+        } catch(e: PackageManager.NameNotFoundException) {
+            Log.i(pkgName, "is not installed")
+            return
+        }
         val applicationInfo = packageInfo.applicationInfo
         val accentName =
             requireContext().packageManager.getApplicationLabel(applicationInfo).toString()
