@@ -51,21 +51,13 @@ class MainActivity: AppCompatActivity() {
         val navController = navHostFragment.navController
 
 
-        // Hide bottom app bar & fab while creating an accent
+        // Hide bottom app bar & ext. fab while creating an accent
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when(destination.id) {
-                R.id.home -> {
+                R.id.home, R.id.info, R.id.settings -> {
                     binding.apply {
                         bottomAppBar.visibility = View.VISIBLE
                         fab.show()
-                        bottomAppBar.performShow()
-                    }
-                }
-                // Hide fab in settings and info pages
-                R.id.settings, R.id.info -> {
-                    binding.apply {
-                        bottomAppBar.visibility = View.VISIBLE
-                        fab.hide()
                         bottomAppBar.performShow()
                     }
                 }
