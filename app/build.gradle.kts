@@ -7,15 +7,19 @@ plugins {
 }
 
 android {
-    compileSdkVersion(30)
+    compileSdkVersion(AndroidSdk.compile)
     buildToolsVersion = "30.0.3"
     defaultConfig {
         applicationId = "app.akilesh.qacc"
-        minSdkVersion(29)
-        targetSdkVersion(30)
+        minSdkVersion(AndroidSdk.min)
+        targetSdkVersion(AndroidSdk.target)
         versionCode = 14
         versionName = "1.91"
         vectorDrawables.useSupportLibrary = true
+
+        javaCompileOptions.annotationProcessorOptions.arguments(
+            mapOf("room.incremental" to "true")
+        )
     }
     buildFeatures {
         dataBinding = true
@@ -37,10 +41,10 @@ android {
         }
     }
     packagingOptions {
-        resources.excludes.add("META-INF/**")
-        resources.excludes.add("/kotlin/**")
-        resources.excludes.add("/okhttp3/**")
-        resources.excludes.add("/org/bouncycastle/**")
+        exclude("META-INF/**")
+        exclude("/kotlin/**")
+        exclude("/okhttp3/**")
+        exclude("/org/bouncycastle/**")
     }
 }
 

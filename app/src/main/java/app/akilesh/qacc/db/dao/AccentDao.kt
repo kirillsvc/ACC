@@ -11,11 +11,11 @@ interface AccentDao {
     fun getAll(): PagingSource<Int, Accent>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(accent: Accent)
+    suspend fun insert(accent: Accent)
 
     @Delete
-    fun delete(accent: Accent)
+    suspend fun delete(accent: Accent)
 
     @Query("SELECT EXISTS(SELECT package_name FROM accent_colors where package_name = :pkgName)")
-    fun exists(pkgName: String): Boolean
+    suspend fun exists(pkgName: String): Boolean
 }

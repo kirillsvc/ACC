@@ -1,11 +1,11 @@
-const val kotlinVersion = "1.6.0"
-const val navigationVersion = "2.3.5"
+const val kotlinVersion = "1.4.21"
+const val navigationVersion = "2.3.2"
 
 
 object BuildPlugins {
 
     object Versions {
-        const val gradleBuildToolsVersion = "7.0.3"
+        const val gradleBuildToolsVersion = "4.1.1"
     }
 
     const val androidGradlePlugin = "com.android.tools.build:gradle:${Versions.gradleBuildToolsVersion}"
@@ -33,7 +33,7 @@ object Libraries {
         const val core = "1.5.0-alpha05"
         const val preference = "1.1.1"
         const val palette = "1.0.0"
-        const val room = "2.3.0"
+        const val room = "2.3.0-alpha04"
         const val lifecycle = "2.2.0"
         const val coroutines = "1.4.2"
         const val fragment = "1.3.0-rc01"
