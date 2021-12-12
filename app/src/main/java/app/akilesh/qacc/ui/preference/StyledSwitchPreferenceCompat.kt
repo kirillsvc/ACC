@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.util.AttributeSet
 import androidx.appcompat.widget.SwitchCompat
-import androidx.core.content.res.ResourcesCompat
 import androidx.preference.PreferenceManager
 import androidx.preference.PreferenceViewHolder
 import androidx.preference.SwitchPreferenceCompat
@@ -21,7 +20,6 @@ class StyledSwitchPreferenceCompat(context: Context, attrs: AttributeSet) :
         val useSystemAccent = sharedPreferences.getBoolean("system_accent", false)
         if (useSystemAccent) {
             val switchCompat = holder?.findViewById(R.id.switchWidget) as SwitchCompat
-            switchCompat.trackDrawable = ResourcesCompat.getDrawable(context.resources, R.drawable.switch_track_material, context.theme)
             val colorStateList =  ColorStateList.valueOf(context.getColorAccent())
             if (switchCompat.isChecked) {
                 switchCompat.thumbTintList = colorStateList
