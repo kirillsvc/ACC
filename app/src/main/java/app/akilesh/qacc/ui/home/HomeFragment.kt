@@ -35,6 +35,7 @@ import app.akilesh.qacc.utils.OverlayUtils.disableAccent
 import app.akilesh.qacc.utils.OverlayUtils.enableAccent
 import app.akilesh.qacc.utils.OverlayUtils.getInstalledOverlays
 import app.akilesh.qacc.utils.OverlayUtils.isOverlayEnabled
+import app.akilesh.qacc.utils.OverlayUtils.isOverlayInstalled
 import com.topjohnwu.superuser.Shell
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
@@ -68,8 +69,11 @@ class HomeFragment: Fragment() {
         val clickListeners = AccentListAdapter.ClickListeners(
             { pkgName ->
                 viewLifecycleOwner.lifecycleScope.launch {
-                    if (isOverlayEnabled(pkgName)) disableAccent(pkgName)
-                    else enableAccent(pkgName)
+                    when (isOverlayInstalled(pkgName)) {
+                        true -> if (isOverlayEnabled(pkgName)) disableAccent(pkgName)
+                                else enableAccent(pkgName)
+                        false -> requireActivity().showSnackBar(getString(R.string.overlay_not_installed))
+                    }
                 }
             },
             { accent ->
@@ -141,7 +145,7 @@ class HomeFragment: Fragment() {
                 val inModule = list.map {
                     prefix + it.removeSuffix(".apk")
                 }
-                val deleted = installed.subtract(inModule)
+                val deleted = installed.subtract(inModule.toSet())
                 if (deleted.isNotEmpty()) {
                     installed.removeAll(deleted)
                 }
@@ -164,7 +168,7 @@ class HomeFragment: Fragment() {
         try {
             packageInfo = requireContext().packageManager.getPackageInfo(pkgName, 0)
         } catch(e: PackageManager.NameNotFoundException) {
-            Log.i(pkgName, "is not installed")
+            Log.i("ACC", "$pkgName is not installed")
             return
         }
         val applicationInfo = packageInfo.applicationInfo

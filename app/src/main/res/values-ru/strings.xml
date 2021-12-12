@@ -184,5 +184,5 @@
     <string name="daily_accent_title">Ежедневный случайный акцент</string>
     <string name="backup_interval_summary">Установите интервал(в днях) между автоматическими резервными копированиемями</string>
     <string name="no_root_access_message">Убедитесь в том, что:\n1. На вашем устройстве установлен Magisk\n2. Приложению предоставлены рут-права</string>
-
+    <string name="overlay_not_installed">Цвет не установлен. Вам необходимо перезагрузиться</string>
 </resources>
