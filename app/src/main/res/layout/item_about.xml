@@ -20,7 +20,7 @@
         android:textAllCaps="false"
         android:gravity="center_vertical"
         android:layout_gravity="center_horizontal"
-        android:elevation="4dp"
+        android:elevation="2dp"
         android:padding="6dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,6 +33,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        app:cardElevation="0dp"
         style="@style/Widget.App.MaterialCardView.Elevated"
         >
 

@@ -88,16 +88,21 @@
         app:fabAlignmentMode="center"
         app:navigationIcon="@drawable/ic_twotone_home"
         app:menu="@menu/main_menu"
+        app:elevation="4dp"
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/fab"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
         app:layout_anchor="@id/bottom_app_bar"
         app:backgroundTint="?attr/colorSurface"
         app:tint="@null"
         app:srcCompat="@drawable/ic_plus_google_colors"
+        app:elevation="2dp"
+        app:fabCradleRoundedCornerRadius="20dp"
+        app:fabCradleMargin="8dp"
         android:contentDescription="@string/create_new"
         />
 
