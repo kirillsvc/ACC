@@ -10,6 +10,7 @@ import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.RecyclerView
 import app.akilesh.qacc.Const.Links.githubReleases
 import app.akilesh.qacc.Const.Links.githubRepo
+import app.akilesh.qacc.Const.Links.officialTelegramGroup
 import app.akilesh.qacc.Const.Links.telegramChannel
 import app.akilesh.qacc.Const.Links.telegramGroup
 import app.akilesh.qacc.Const.Links.xdaThread
@@ -48,6 +49,7 @@ class InfoFragment: Fragment() {
             InfoItem(getString(R.string.links), R.drawable.ic_round_link, null) to listOf(
                 InfoItem(getString(R.string.github_repo), R.drawable.ic_github, githubRepo),
                 InfoItem(getString(R.string.telegram_group), R.drawable.ic_telegram_app, telegramGroup),
+                InfoItem(getString(R.string.official_telegram_group), R.drawable.ic_telegram_app, officialTelegramGroup),
                 InfoItem(getString(R.string.xda_thread), R.drawable.ic_xda, xdaThread)
             ),
             InfoItem(getString(R.string.downloads), R.drawable.ic_downloads, null) to listOf(
