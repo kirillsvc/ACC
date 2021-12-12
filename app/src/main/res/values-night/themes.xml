@@ -4,8 +4,8 @@
     <style name="Theme.Acc.DayNight" parent="Theme.Acc.Dark"/>
 
     <style name="Theme.Acc.Dark" parent="Base.Theme.Acc">
-        <item name="colorPrimary">@color/acc_ocean_dark</item>
-        <item name="colorAccent">@color/acc_ocean_dark</item>
+        <item name="colorPrimary">@color/acc_default_dark</item>
+        <item name="colorAccent">@color/acc_default_dark</item>
         <item name="android:colorBackground">@color/acc_black</item>
         <item name="colorSurface">@color/acc_black</item>
         <item name="colorSecondary">@color/acc_grey_dark</item>
