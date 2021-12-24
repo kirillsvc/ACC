@@ -35,7 +35,6 @@ import app.akilesh.qacc.utils.OverlayUtils.disableAccent
 import app.akilesh.qacc.utils.OverlayUtils.enableAccent
 import app.akilesh.qacc.utils.OverlayUtils.getInstalledOverlays
 import app.akilesh.qacc.utils.OverlayUtils.isOverlayEnabled
-import app.akilesh.qacc.utils.OverlayUtils.isOverlayInstalled
 import com.topjohnwu.superuser.Shell
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
@@ -69,7 +68,7 @@ class HomeFragment: Fragment() {
         val clickListeners = AccentListAdapter.ClickListeners(
             { pkgName ->
                 viewLifecycleOwner.lifecycleScope.launch {
-                    when (isOverlayInstalled(pkgName)) {
+                    when (getInstalledOverlays().contains(pkgName)) {
                         true -> if (isOverlayEnabled(pkgName)) disableAccent(pkgName)
                                 else enableAccent(pkgName)
                         false -> requireActivity().showSnackBar(getString(R.string.overlay_not_installed))

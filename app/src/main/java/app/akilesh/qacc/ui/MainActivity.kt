@@ -51,7 +51,7 @@ class MainActivity: AppCompatActivity() {
         val navController = navHostFragment.navController
 
 
-        // Hide bottom app bar & ext. fab while creating an accent
+        // Hide bottom app bar & fab while creating an accent
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when(destination.id) {
                 R.id.home, R.id.info, R.id.settings -> {
@@ -77,9 +77,9 @@ class MainActivity: AppCompatActivity() {
 
         binding.bottomAppBar.setOnMenuItemClickListener {
             when(it.itemId) {
-                R.id.settings -> if(navController.currentDestination?.id != R.id.settings)
+                R.id.settings -> if (navController.currentDestination?.id != R.id.settings)
                     navController.navigate(R.id.settings, null, navAnim)
-                R.id.info -> if(navController.currentDestination?.id != R.id.info)
+                R.id.info -> if (navController.currentDestination?.id != R.id.info)
                     navController.navigate(R.id.info, null, navAnim)
             }
             true
@@ -90,7 +90,7 @@ class MainActivity: AppCompatActivity() {
          * May not be the correct way, but convenient.
          */
         binding.bottomAppBar.setNavigationOnClickListener {
-            if(navController.currentDestination?.id != R.id.home)
+            if (navController.currentDestination?.id != R.id.home)
                 navController.navigate(R.id.home, null, navAnim)
         }
 

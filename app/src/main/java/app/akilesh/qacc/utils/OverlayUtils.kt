@@ -45,8 +45,4 @@ object OverlayUtils {
             false
         }
     }
-
-    fun isOverlayInstalled(pkgName: String): Boolean {
-        return getInstalledOverlays().contains(pkgName)
-    }
 }
