@@ -160,13 +160,14 @@ class HomeFragment: Fragment() {
         }
     }
 
+    // TODO fix inserting missing accents
     private fun insertMissing(pkgName: String) {
         Log.w("Missing in db", pkgName)
         val packageInfo: PackageInfo
         try {
             packageInfo = requireContext().packageManager.getPackageInfo(pkgName, 0)
         } catch(e: PackageManager.NameNotFoundException) {
-            Log.i("ACC", "$pkgName is not installed")
+            Log.i("ACC", e.toString())
             return
         }
         val applicationInfo = packageInfo.applicationInfo
