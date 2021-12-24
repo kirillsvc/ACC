@@ -1,5 +1,7 @@
 package app.akilesh.qacc.ui.home
 
+import android.content.pm.PackageInfo
+import android.content.pm.PackageManager
 import android.os.Build.VERSION.SDK_INT
 import android.os.Build.VERSION_CODES.P
 import android.os.Bundle
@@ -66,8 +68,11 @@ class HomeFragment: Fragment() {
         val clickListeners = AccentListAdapter.ClickListeners(
             { pkgName ->
                 viewLifecycleOwner.lifecycleScope.launch {
-                    if (isOverlayEnabled(pkgName)) disableAccent(pkgName)
-                    else enableAccent(pkgName)
+                    when (getInstalledOverlays().contains(pkgName)) {
+                        true -> if (isOverlayEnabled(pkgName)) disableAccent(pkgName)
+                                else enableAccent(pkgName)
+                        false -> requireActivity().showSnackBar(getString(R.string.overlay_not_installed))
+                    }
                 }
             },
             { accent ->
@@ -139,7 +144,7 @@ class HomeFragment: Fragment() {
                 val inModule = list.map {
                     prefix + it.removeSuffix(".apk")
                 }
-                val deleted = installed.subtract(inModule)
+                val deleted = installed.subtract(inModule.toSet())
                 if (deleted.isNotEmpty()) {
                     installed.removeAll(deleted)
                 }
@@ -155,9 +160,16 @@ class HomeFragment: Fragment() {
         }
     }
 
+    // TODO fix inserting missing accents
     private fun insertMissing(pkgName: String) {
         Log.w("Missing in db", pkgName)
-        val packageInfo = requireContext().packageManager.getPackageInfo(pkgName, 0)
+        val packageInfo: PackageInfo
+        try {
+            packageInfo = requireContext().packageManager.getPackageInfo(pkgName, 0)
+        } catch(e: PackageManager.NameNotFoundException) {
+            Log.i("ACC", e.toString())
+            return
+        }
         val applicationInfo = packageInfo.applicationInfo
         val accentName =
             requireContext().packageManager.getApplicationLabel(applicationInfo).toString()

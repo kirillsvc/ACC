@@ -182,5 +182,6 @@
     <plurals name="auto_backup_summary_on">
         <item quantity="other">Accents will be backed up once in every %d days</item>
     </plurals>
+    <string name="overlay_not_installed">未安装Overlay。 你必须重新启动 [wèi ānzhuāng Overlay.  nǐ bìxū zhòngxīn qǐdòng]</string>
 
 </resources>

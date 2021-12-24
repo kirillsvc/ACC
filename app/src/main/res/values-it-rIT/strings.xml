@@ -65,7 +65,7 @@
     <string name="wallpaper_primary">Colore principale</string>
     <string name="wallpaer_secondary">Colore secondario</string>
     <string name="wallpaper_tertiary">Colore terziario</string>
-    <string name="about_title_desc">Di Akilesh</string>
+    <string name="about_title_desc">Di Akilesh e kirillsvc</string>
     <string name="version">Versione %s</string>
     <string name="links">Link</string>
     <string name="github_repo">Repository Github</string>
@@ -181,5 +181,6 @@
         <item quantity="one">Il backup dei colori verrà eseguito ogni giorno</item>
         <item quantity="other">Il backup dei colori verrà eseguito ogni %d giorni</item>
     </plurals>
+    <string name="overlay_not_installed">Overlay non è installato. Devi riavviare</string>
 
 </resources>

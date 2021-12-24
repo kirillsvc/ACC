@@ -419,11 +419,11 @@ object Const {
     }
 
     object Links {
-        const val telegramGroup = "https://t.me/AccentColourCreator"
+        const val telegramGroup = "https://t.me/ACCUnofficial"
         const val xdaThread =
             "https://forum.xda-developers.com/android/apps-games/app-magisk-module-qacc-custom-accent-t4011747"
-        const val githubRepo = "https://github.com/Akilesh-T/ACC"
-        const val telegramChannel = "https://t.me/ACC_Releases"
+        const val githubRepo = "https://github.com/kirillsvc/ACC"
+        const val telegramChannel = "https://t.me/ACCUnofficialUpdates"
         const val githubReleases = "$githubRepo/releases/latest"
     }
 
