@@ -2,7 +2,7 @@
 
 **Accent Colour Creator**  
 
-[![Latest Release](https://img.shields.io/github/v/release/Akilesh-T/ACC.svg?logo=github)](https://github.com/Akilesh-T/ACC/releases/latest) [![Downloads](https://img.shields.io/github/downloads/Akilesh-T/ACC/total.svg)](https://github.com/Akilesh-T/ACC/releases) [![XDA thread](https://img.shields.io/badge/XDA-Thread-orange.svg?logo=xda-developers)](https://forum.xda-developers.com/android/apps-games/app-magisk-module-qacc-custom-accent-t4011747) [![Telegram group](https://img.shields.io/badge/Telegram-Group-blue.svg?logo=telegram)](https://t.me/AccentColourCreator) [![Telegram channel](https://img.shields.io/badge/Telegram-Channel-blue.svg?logo=telegram)](https://t.me/ACC_Releases)
+[![Latest Release](https://img.shields.io/github/v/release/kirillsvc/ACC.svg?logo=github)](https://github.com/kirillsvc/ACC/releases/latest) [![Downloads](https://img.shields.io/github/downloads/Akilesh-T/ACC/total.svg)](https://github.com/Akilesh-T/ACC/releases) [![XDA thread](https://img.shields.io/badge/XDA-Thread-orange.svg?logo=xda-developers)](https://forum.xda-developers.com/android/apps-games/app-magisk-module-qacc-custom-accent-t4011747) [![Telegram group](https://img.shields.io/badge/Telegram-Group-blue.svg?logo=telegram)](https://t.me/ACCUnoffical) [![Telegram channel](https://img.shields.io/badge/Telegram-Channel-blue.svg?logo=telegram)](https://t.me/ACCUnofficalUpdates)
 
 Accent Colour Creator (ACC) is an android app which lets you set any colour as the system accent. 
 
@@ -25,4 +25,4 @@ Accent Colour Creator (ACC) is an android app which lets you set any colour as t
 * Android Oreo and above.
 * Latest Magisk.
 
-[Screenshots](https://forum.xda-developers.com/devdb/project/?id=35917#screenshots)
+[Screenshots](https://github.com/ACC/screenshots)
