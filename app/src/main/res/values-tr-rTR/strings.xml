@@ -65,7 +65,7 @@
     <string name="wallpaper_primary">Duvar Kağıdı Birincil</string>
     <string name="wallpaer_secondary">Duvar Kağıdı İkincil</string>
     <string name="wallpaper_tertiary">Duvar Kağıdı Üçüncül</string>
-    <string name="about_title_desc">Akilesh tarafından</string>
+    <string name="about_title_desc">Akilesh ve kirillsvc tarafından</string>
     <string name="version">Sürüm %s</string>
     <string name="links">Bağlantılar</string>
     <string name="github_repo">Github Repo</string>
@@ -187,5 +187,6 @@
         <item quantity="one">Vurgu renkleri günlük olarak yedeklenecek</item>
         <item quantity="other">Vurgu renkleri her %d günde bir yedeklenecek</item>
     </plurals>
+    <string name="overlay_not_installed">"Bindirme yüklü değil. Yeniden başlatma gerekiyor "</string>
 
 </resources>

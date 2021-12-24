@@ -162,7 +162,6 @@ class HomeFragment: Fragment() {
 
     private fun insertMissing(pkgName: String) {
         Log.w("Missing in db", pkgName)
-        //val packageInfo = requireContext().packageManager.getPackageInfo(pkgName, 0)
         val packageInfo: PackageInfo
         try {
             packageInfo = requireContext().packageManager.getPackageInfo(pkgName, 0)

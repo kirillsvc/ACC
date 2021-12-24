@@ -70,7 +70,7 @@
     <string name="wallpaper_primary">Hintergrundbild primär</string>
     <string name="wallpaer_secondary">Hintergrundbild sekundär</string>
     <string name="wallpaper_tertiary">Hintergrundbild tertiär</string>
-    <string name="about_title_desc">By Akilesh</string>
+    <string name="about_title_desc">Von Akilesh und kirillsvc</string>
     <!--
         same word in german / no translation needed
         <string name="version">Version</string>    
@@ -190,5 +190,6 @@
         <item quantity="one">Accents will be backed up daily</item>
         <item quantity="other">Accents will be backed up once in every %d days</item>
     </plurals>
+    <string name="overlay_not_installed">Overlay ist nicht installiert. Sie müssen neu starten</string>
 
 </resources>

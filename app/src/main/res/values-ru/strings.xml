@@ -66,7 +66,7 @@
     <string name="wallpaper_primary">Основной цвет обоев</string>
     <string name="wallpaer_secondary">Вторичный цвет обоев</string>
     <string name="wallpaper_tertiary">Третичный цвет обоев</string>
-    <string name="about_title_desc">автор:  Akilesh</string>
+    <string name="about_title_desc">Авторы: Akilesh и kirillsvc</string>
     <string name="version">Version %s</string>
     <string name="links">Ссылки</string>
     <string name="github_repo">Репозиторий GitHub</string>
@@ -88,7 +88,7 @@
     <string name="magisk_not_detected">Magisk не обнаружен!</string>
     <string name="exit">Выйти</string>
     <string name="error">Не удалось создать оверлей</string>
-    <string name="backup_restore">Резервное копирование и восстановлени</string>
+    <string name="backup_restore">Резервное копирование и восстановление</string>
     <string name="backup_restore_summary">Сохраните свои акценты и восстановите при необходимости</string>
     <string name="restore">Восстановить</string>
     <string name="local_backups">Резерные копии в хранилище</string>
@@ -185,4 +185,9 @@
     <string name="backup_interval_summary">Установите интервал(в днях) между автоматическими резервными копированиемями</string>
     <string name="no_root_access_message">Убедитесь в том, что:\n1. На вашем устройстве установлен Magisk\n2. Приложению предоставлены рут-права</string>
     <string name="overlay_not_installed">Цвет не установлен. Вам необходимо перезагрузиться</string>
+    <plurals name="auto_backup_summary_on" tools:ignore="MissingQuantity">
+        <item quantity="one" tools:ignore="ImpliedQuantity">Резервная копия будет создана ежедневно</item>
+        <item quantity="other">Резервная копия будет создана раз в %d дней</item>
+    </plurals>
+
 </resources>
