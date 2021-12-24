@@ -66,7 +66,7 @@
     <string name="wallpaper_primary">Основной цвет обоев</string>
     <string name="wallpaer_secondary">Вторичный цвет обоев</string>
     <string name="wallpaper_tertiary">Третичный цвет обоев</string>
-    <string name="about_title_desc">автор:  Akilesh</string>
+    <string name="about_title_desc">Авторы: Akilesh и kirillsvc</string>
     <string name="version">Version %s</string>
     <string name="links">Ссылки</string>
     <string name="github_repo">Репозиторий GitHub</string>

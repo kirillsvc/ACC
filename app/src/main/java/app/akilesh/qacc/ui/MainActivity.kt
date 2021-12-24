@@ -99,7 +99,7 @@ class MainActivity: AppCompatActivity() {
 
         appUpdaterUtils
             .setUpdateFrom(JSON)
-            .setUpdateJSON("https://raw.githubusercontent.com/Akilesh-T/ACC/master/app/update-changelog.json")
+            .setUpdateJSON("https://raw.githubusercontent.com/kirillsvc/ACC/master/app/update-changelog.json")
             .withListener(object : AppUpdaterUtils.UpdateListener {
 
                 override fun onSuccess(update: Update?, isUpdateAvailable: Boolean?) {

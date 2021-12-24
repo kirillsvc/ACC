@@ -65,7 +65,7 @@
     <string name="wallpaper_primary">Duvar Kağıdı Birincil</string>
     <string name="wallpaer_secondary">Duvar Kağıdı İkincil</string>
     <string name="wallpaper_tertiary">Duvar Kağıdı Üçüncül</string>
-    <string name="about_title_desc">Akilesh tarafından</string>
+    <string name="about_title_desc">Akilesh ve kirillsvc tarafından</string>
     <string name="version">Sürüm %s</string>
     <string name="links">Bağlantılar</string>
     <string name="github_repo">Github Repo</string>
