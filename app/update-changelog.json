@@ -1,8 +1,17 @@
 {
-  "latestVersion": "1.91",
-  "latestVersionCode": "14",
-  "url": "https://github.com/Akilesh-T/ACC/releases/latest",
+  "latestVersion": "1.92",
+  "latestVersionCode": "15",
+  "url": "https://github.com/kirillsvc/ACC/releases/latest",
   "releaseNotes": [
-    "- Hotfix for duplication in home screen"
+    "- Improved card's rounded corners",
+    "- Dialogs and popup menus are replaced with bottom sheets",
+    "- New color pickers",
+    "- Improvements to layout",
+    "- Minor improvements in navigation",
+    "- Fixed app crash is some conditions",
+    "- Added russian translation(by kirillsvc)",
+    "- Now you will see message if you try to enable an overlay that isn't installed",
+    "- Use default switch button if \"follow system accent\" is enabled",
+    "- And many other under the hood improvements ;)"
   ]
 }
