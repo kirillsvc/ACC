@@ -101,21 +101,19 @@ class AccentInfoSheet: BottomSheetDialogFragment() {
         val isInstalled = packageManager.isOverlayInstalled(pkgName)
 
         val infoList = mutableListOf(
-            AccentInfo("Name", name),
-            AccentInfo("Package name", pkgName),
+            AccentInfo(getString(R.string.accent_info_name), name),
+            AccentInfo(getString(R.string.accent_info_package_name), pkgName),
         )
         if (isInstalled) {
             val packageInfo = packageManager.getPackageInfo(pkgName, 0)
-            infoList.addAll(
-                listOf(
-                    AccentInfo("Version", packageInfo.versionName),
-                    AccentInfo("Path to APK", packageInfo.applicationInfo.sourceDir),
-                    AccentInfo("First installed", DateUtils.getRelativeTimeSpanString(
-                        packageInfo.firstInstallTime,
-                        System.currentTimeMillis(),
-                        DateUtils.DAY_IN_MILLIS
-                    ).toString())
-                )
+            infoList += listOf(
+                AccentInfo(getString(R.string.accent_info_version), packageInfo.versionName),
+                AccentInfo(getString(R.string.accent_info_path), packageInfo.applicationInfo.sourceDir),
+                AccentInfo(getString(R.string.accent_info_first_installed),DateUtils.getRelativeTimeSpanString(
+                    packageInfo.firstInstallTime,
+                    System.currentTimeMillis(),
+                    DateUtils.DAY_IN_MILLIS
+                ).toString())
             )
         }
 
