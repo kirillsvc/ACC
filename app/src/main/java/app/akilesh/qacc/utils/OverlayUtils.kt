@@ -26,16 +26,11 @@ object OverlayUtils {
     }
 
     fun getInstalledOverlays(): MutableList<String> {
-        val installedAccents: MutableList<String> =  Shell.su(
-            "pm list packages -f $prefix | sed s/package://"
+        val installedAccents: MutableList<String> = Shell.su(
+            "pm list packages $prefix | sed s/package://"
         ).exec().out
-
         val installed = mutableListOf<String>()
-        if (installedAccents.isNotEmpty())
-            installed.addAll(
-                installedAccents.map { it.substringAfterLast('=') }
-            )
-        return installed
+        return if(installedAccents.isNotEmpty()) installedAccents else installed
     }
 
     fun PackageManager.isOverlayInstalled(pkgName: String): Boolean {
