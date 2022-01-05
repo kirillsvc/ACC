@@ -5,7 +5,7 @@
     <string name="app_name_short">ACC</string>
     <string name="color_custom">Свой цвет</string>
     <string name="set_custom_color">Нажмите, чтобы выбрать свой цвет</string>
-    <string name="color_name">Назовите цвет акцента</string>
+    <string name="color_name">Название</string>
     <string name="color_wallpaper">Цвета обоев</string>
     <string name="created_accents">Созданные акценты</string>
     <string name="presets">Стандартные цвета</string>
@@ -144,7 +144,7 @@
     <string name="dark_mode_set_by_battery_saver">В зависимости от экономии батареи</string>
     <string name="dark_mode_system_default">Как в системе</string>
     <string name="create_backup">Резерное копирование</string>
-    <string name="edit">Редактирование</string>
+    <string name="edit">Редактировать</string>
     <string name="pref_accent">Следовать системноу акценту</string>
     <string name="pref_accent_on">Используется стандартный акцент приложения</string>
     <string name="pref_accent_off">Используется акцент системы</string>
@@ -185,9 +185,13 @@
     <string name="backup_interval_summary">Установите интервал(в днях) между автоматическими резервными копированиемями</string>
     <string name="no_root_access_message">Убедитесь в том, что:\n1. На вашем устройстве установлен Magisk\n2. Приложению предоставлены рут-права</string>
     <string name="overlay_not_installed">Цвет не установлен. Вам необходимо перезагрузиться</string>
+    <string name="accent_info_version">Версия</string>
+    <string name="accent_info_path">Путь к APK</string>
+    <string name="accent_info_first_installed">Первая установка</string>
+    <string name="accent_info_name">Имя</string>
+    <string name="accent_info_package_name">Имя пакета</string>
     <plurals name="auto_backup_summary_on" tools:ignore="MissingQuantity">
         <item quantity="one" tools:ignore="ImpliedQuantity">Резервная копия будет создана ежедневно</item>
         <item quantity="other">Резервная копия будет создана раз в %d дней</item>
     </plurals>
-
 </resources>
