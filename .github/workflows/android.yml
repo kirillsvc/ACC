@@ -36,7 +36,6 @@ jobs:
          cd ../
 
     - name: Upload build
-      run: ls SignApk
       uses: actions/upload-artifact@v2
       with:
         name: app-debug.apk
