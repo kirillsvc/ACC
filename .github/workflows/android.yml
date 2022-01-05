@@ -25,3 +25,18 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew assembleDebug
+    - name: Sing APK
+      run: |
+         sudo apt install git
+         git clone https://github.com/techexpertize/SignApk
+         cd SignApk
+         cp ../app/src/main/assets/* $PWD
+         cp ../app/build/outputs/apk/debug/app-debug.apk $PWD
+         java -jar signapk.jar testkey.x509.pem testkey.pk8 app-debug.apk app-debug-signed.apk
+         cd ../
+
+    - name: Upload build
+    - uses: actions/upload-artifact@v2
+      with:
+        name: app-debug.apk
+        path: SignApk/app-debug-signed.apk
