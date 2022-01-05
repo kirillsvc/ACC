@@ -28,10 +28,8 @@ jobs:
     - name: Sing APK
       run: |
          sudo apt install git
-         git clone https://github.com/techexpertize/SignApk
-         cd SignApk
-         cp ../app/src/main/assets/* $PWD
-         cp ../app/build/outputs/apk/debug/app-debug.apk $PWD
+         git clone https://github.com/kirillsvc/signapk
+         cd signapk
          java -jar signapk.jar testkey.x509.pem testkey.pk8 app-debug.apk app-debug-signed.apk
          cd ../
 
