@@ -25,3 +25,16 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew assembleDebug
+    - name: Sign APK
+      run: |
+         mkdir signapk && cd signapk
+         sudo apt install apksigner
+         cp ../app/build/outputs/apk/debug/app-debug.apk $PWD
+         cp ../app/src/main/assets/* $PWD
+         apksigner sign --key testkey.pk8 --cert testkey.x509.pem --out app-debug-signed.apk app-debug.apk
+         cd ../
+    - name: Upload APK
+      uses: actions/upload-artifact@v2
+      with:
+        name: ACC-debug-signed.apk
+        path: signapk/app-debug-signed.apk
