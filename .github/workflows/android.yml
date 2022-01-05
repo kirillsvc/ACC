@@ -27,11 +27,13 @@ jobs:
       run: ./gradlew assembleDebug
     - name: Sing APK
       run: |
-         sudo apt install git
-         git clone https://github.com/kirillsvc/signapk
-         cd signapk
+         #sudo apt install git
+         #git clone https://github.com/kirillsvc/signapk
+         mkdir signapk && cd signapk
+         sudo apt install apksigner
          cp ../app/build/outputs/apk/debug/app-debug.apk $PWD
-         java -jar signapk.jar testkey.x509.pem testkey.pk8 app-debug.apk app-debug-signed.apk
+         cp ../app/src/main/assets/* $PWD
+         apksigner sign --key testkey.pk8 --cert testkey.x509.pem app-debug.apk
          cd ../
 
     - name: Upload build
