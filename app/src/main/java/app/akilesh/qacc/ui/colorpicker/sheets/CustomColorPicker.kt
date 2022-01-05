@@ -14,6 +14,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.palette.graphics.Palette
+import androidx.preference.PreferenceManager
 import app.akilesh.qacc.Const.Colors.colorSpaces
 import app.akilesh.qacc.Const.Colors.customHex
 import app.akilesh.qacc.Const.Colors.editDark
@@ -27,6 +28,7 @@ import app.akilesh.qacc.ui.colorpicker.ZoomOutPageTransformer
 import app.akilesh.qacc.ui.colorpicker.colorspace.ColorSpaceAdapter
 import app.akilesh.qacc.ui.colorpicker.colorspace.ColorSpaceViewModel
 import app.akilesh.qacc.utils.AppUtils.getColorAccent
+import app.akilesh.qacc.utils.AppUtils.getThemeColor
 import app.akilesh.qacc.utils.AppUtils.toHex
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -60,9 +62,13 @@ class CustomColorPicker : BottomSheetDialogFragment() {
 
         val previousStateHandle = findNavController().previousBackStackEntry?.savedStateHandle
 
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext())
+        val useSystemAccent = sharedPreferences.getBoolean("system_accent", false)
+
         val prevHex = previousStateHandle?.get<String>(customHex)
         val color = if (prevHex != null && prevHex.isNotBlank()) Color.parseColor(prevHex)
-        else requireContext().getColorAccent()
+        else if(useSystemAccent) requireContext().getColorAccent()
+        else requireContext().getThemeColor(R.attr.colorPrimary)
 
         colorSpaceViewModel.selectColor(color)
         setupTextInputLayout(color)
