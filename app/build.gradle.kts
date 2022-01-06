@@ -58,7 +58,7 @@ dependencies {
     implementation("androidx.palette:palette-ktx:1.0.0")
 
     // Room components
-    implementation("androidx.room:room-runtime:2.3.0-alpha04")
+    implementation("androidx.room:room-runtime:2.4.0")
     implementation("androidx.room:room-ktx:2.3.0-alpha04")
     kapt("androidx.room:room-compiler:2.4.0")
 
