@@ -25,7 +25,7 @@ object AndroidSdk {
     const val target = 30
 }
 
-object Libraries {
+/* object Libraries {
     private object Versions {
         const val jetpack = "1.2.0"
         const val constraintLayout = "2.0.4"
@@ -100,4 +100,4 @@ object Libraries {
     const val bcPKIX              = "org.bouncycastle:bcpkix-jdk15on:${Versions.bouncyCastlePKIX}"
 
     const val paging              = "androidx.paging:paging-runtime-ktx:${Versions.paging}"
-}
+} */
