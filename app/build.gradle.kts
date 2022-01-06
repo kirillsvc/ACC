@@ -60,7 +60,7 @@ dependencies {
     // Room components
     implementation("androidx.room:room-runtime:2.3.0-alpha04")
     implementation("androidx.room:room-ktx:2.3.0-alpha04")
-    kapt("androidx.room:room-compiler:2.3.0-alpha04")
+    kapt("androidx.room:room-compiler:2.4.0")
 
     // Lifecycle components
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.2.0")
