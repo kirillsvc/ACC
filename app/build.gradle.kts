@@ -92,7 +92,7 @@ dependencies {
 
     debugImplementation("com.github.haroldadmin:WhatTheStack:0.2.0")
 
-    implementation("androidx.work:work-runtime-ktx:2.4.0")
+    implementation("androidx.work:work-runtime-ktx:2.7.1")
 
     implementation("androidx.recyclerview:recyclerview:1.1.0")
     implementation("androidx.recyclerview:recyclerview-selection:1.1.0-rc03")
