@@ -32,6 +32,7 @@ import app.akilesh.qacc.R
 import app.akilesh.qacc.databinding.FragmentColorPickerBinding
 import app.akilesh.qacc.model.Accent
 import app.akilesh.qacc.model.Colour
+import app.akilesh.qacc.ui.MainActivity
 import app.akilesh.qacc.utils.XmlUtils.createColors
 import app.akilesh.qacc.utils.XmlUtils.createOverlayManifest
 import app.akilesh.qacc.utils.signing.CryptoUtils.readCertificate
@@ -47,7 +48,7 @@ import java.util.*
 
 
 object AppUtils {
-    private const val lightMode  = "light"
+    private const val lightMode = "light"
     private const val darkMode = "dark"
     const val default = "default"
 
@@ -64,7 +65,7 @@ object AppUtils {
         }
     }
 
-   /* fun getDesaturatedColor(color: Int, ratio: Float): String {
+    /* fun getDesaturatedColor(color: Int, ratio: Float): String {
         val hsv = FloatArray(3)
         Color.colorToHSV(color, hsv)
 
@@ -80,7 +81,10 @@ object AppUtils {
         @AttrRes val attr = android.R.attr.colorAccent
 
         val typedArray = if (SDK_INT >= Q)
-            obtainStyledAttributes(android.R.style.ThemeOverlay_DeviceDefault_Accent_DayNight, intArrayOf(attr))
+            obtainStyledAttributes(
+                android.R.style.ThemeOverlay_DeviceDefault_Accent_DayNight,
+                intArrayOf(attr)
+            )
         else obtainStyledAttributes(android.R.style.Theme_DeviceDefault, intArrayOf(attr))
 
         return typedArray.use {
@@ -112,8 +116,8 @@ object AppUtils {
     }
 
     val navAnim = navOptions {
-        anim  {
-            enter  = R.anim.fragment_enter
+        anim {
+            enter = R.anim.fragment_enter
             exit = R.anim.fragment_exit
             popEnter = R.anim.fragment_enter_pop
             popExit = R.anim.fragment_exit_pop
@@ -195,7 +199,8 @@ object AppUtils {
 
 
         val primaryHex = toHex(primary)
-        val wallpaperColours = mutableListOf(Colour(primaryHex, getString(R.string.wallpaper_primary)))
+        val wallpaperColours =
+            mutableListOf(Colour(primaryHex, getString(R.string.wallpaper_primary)))
         if (secondary != null) {
             val secondaryHex = toHex(secondary)
             wallpaperColours.add(Colour(secondaryHex, getString(R.string.wallpaer_secondary)))
@@ -278,7 +283,7 @@ object AppUtils {
         val manifest = File(filesDir, "AndroidManifest.xml")
         val source = File(filesDir, "src")
         val valuesDir = File(source, "values")
-        if(valuesDir.exists().not()) valuesDir.mkdirs()
+        if (valuesDir.exists().not()) valuesDir.mkdirs()
         val colors = File(valuesDir, "colors.xml")
 
         symLinkBinaries(context.applicationInfo.nativeLibraryDir, aapt, zipalign)
@@ -295,7 +300,7 @@ object AppUtils {
             Log.d("aapt-code", aaptResult.code.toString())
             Log.d("aapt-out", aaptResult.out.toString())
 
-            if (aaptResult.isSuccess  && aaptOverlay.exists()) {
+            if (aaptResult.isSuccess && aaptOverlay.exists()) {
 
                 val certFile = context.assets.open("testkey.x509.pem")
                 val keyFile = context.assets.open("testkey.pk8")
@@ -349,8 +354,7 @@ object AppUtils {
                         }
                     }
                 }
-            }
-            else {
+            } else {
                 Log.e("aapt-e", aaptResult.out.toString())
             }
         }
@@ -373,8 +377,7 @@ object AppUtils {
         if (SDK_INT >= P) {
             if (Shell.su("[ \"$(ls -A $overlayPath)\" ]").exec().isSuccess)
                 isCreated = compress(overlayPath, isAuto)
-        }
-        else {
+        } else {
             val installedAccents: MutableList<String> = Shell.su(
                 "pm list packages -f $prefix | sed s/package://"
             ).exec().out
@@ -417,4 +420,5 @@ object AppUtils {
         ).exec()
     }
 
+     val useSystemAccent = MainActivity().useSystemAccent
 }

@@ -31,6 +31,9 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class MainActivity: AppCompatActivity() {
 
+    val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)!!
+    val useSystemAccent = sharedPreferences.getBoolean("system_accent", false)
+
     private lateinit var binding: ActivityMainBinding
     private lateinit var appUpdaterUtils: AppUpdaterUtils
 
@@ -41,9 +44,6 @@ class MainActivity: AppCompatActivity() {
 
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
-
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
-        val useSystemAccent = sharedPreferences.getBoolean("system_accent", false)
         val color =  if (useSystemAccent) getColorAccent() else getThemeColor(R.attr.colorPrimary)
         setColor(color)
 

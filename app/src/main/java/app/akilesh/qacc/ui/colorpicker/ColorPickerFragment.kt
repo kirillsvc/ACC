@@ -39,6 +39,7 @@ import app.akilesh.qacc.utils.AppUtils.getWallpaperColors
 import app.akilesh.qacc.utils.AppUtils.setPreview
 import app.akilesh.qacc.utils.AppUtils.showSnackBar
 import app.akilesh.qacc.utils.AppUtils.toHex
+import app.akilesh.qacc.utils.AppUtils.useSystemAccent
 import com.afollestad.assent.Permission
 import com.afollestad.assent.rationale.createDialogRationale
 import com.afollestad.assent.runWithPermissions
@@ -61,15 +62,11 @@ class ColorPickerFragment: Fragment() {
 
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext())
 
-        val useSystemAccent = sharedPreferences.getBoolean("system_accent", false)
-        if(useSystemAccent)
-            setPreview(binding, Colour(toHex(requireContext().getColorAccent()), ""), true)
-        else
-            setPreview(
-                binding,
-                Colour(toHex(requireContext().getThemeColor(R.attr.colorPrimary)), ""),
-                true
-            )
+        val color = when(useSystemAccent) {
+            true -> Colour(toHex(requireContext().getColorAccent()), "")
+            false -> Colour(toHex(requireContext().getThemeColor(R.attr.colorPrimary)), "")
+        }
+        setPreview(binding, color,true)
 
         var separateAccents = sharedPreferences.getBoolean("separate_accent", false)
         if (SDK_INT < Q) separateAccents = false

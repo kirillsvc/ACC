@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.preference.PreferenceManager
 import app.akilesh.qacc.R
 import app.akilesh.qacc.databinding.ColorPickerRgbBinding
 import app.akilesh.qacc.utils.AppUtils.getColorAccent
 import app.akilesh.qacc.utils.AppUtils.getThemeColor
+import app.akilesh.qacc.utils.AppUtils.useSystemAccent
 import codes.side.andcolorpicker.converter.getBInt
 import codes.side.andcolorpicker.converter.getGInt
 import codes.side.andcolorpicker.converter.getRInt
@@ -79,10 +79,9 @@ class RGBColorPicker : Fragment() {
         )
 
         if (viewModel.selectedColor.value == null) {
-            val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext())
-            val useSystemAccent = sharedPreferences.getBoolean("system_accent", false)
-            if(useSystemAccent) setPickerColor(requireContext().getColorAccent())
-            else setPickerColor(requireContext().getThemeColor(R.attr.colorPrimary))
+            val color = if(useSystemAccent) requireContext().getColorAccent()
+                else requireContext().getThemeColor(R.attr.colorPrimary)
+            setPickerColor(color)
         }
     }
 
