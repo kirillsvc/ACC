@@ -23,6 +23,7 @@ import androidx.core.view.isVisible
 import androidx.core.widget.TextViewCompat
 import androidx.navigation.navOptions
 import androidx.palette.graphics.Palette
+import androidx.preference.PreferenceManager
 import app.akilesh.qacc.Const.Colors.nokiaBlue
 import app.akilesh.qacc.Const.Paths.backupFolder
 import app.akilesh.qacc.Const.Paths.busyBox
@@ -420,5 +421,6 @@ object AppUtils {
         ).exec()
     }
 
-     val useSystemAccent = MainActivity().useSystemAccent
+    fun useSystemAccent(con: Context?) = PreferenceManager.getDefaultSharedPreferences(con)
+        .getBoolean("system_accent", false)
 }

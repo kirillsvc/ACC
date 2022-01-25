@@ -13,6 +13,7 @@ import app.akilesh.qacc.utils.AppUtils.applyTheme
 import app.akilesh.qacc.utils.AppUtils.getColorAccent
 import app.akilesh.qacc.utils.AppUtils.getThemeColor
 import app.akilesh.qacc.utils.AppUtils.navAnim
+import app.akilesh.qacc.utils.AppUtils.useSystemAccent
 
 class SettingsFragment: PreferenceFragmentCompat() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -33,9 +34,9 @@ class SettingsFragment: PreferenceFragmentCompat() {
             createAllPref, autoBackupPref, autoBackupIntervalPref, deleteOld, dailyAccentPref
         )
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext())
-        val useSystemAccent = sharedPreferences.getBoolean("system_accent", false)
 
-        val iconTint = if (useSystemAccent) ColorStateList.valueOf(requireContext().getColorAccent())
+        val iconTint = if (useSystemAccent(context))
+            ColorStateList.valueOf(requireContext().getColorAccent())
         else ColorStateList.valueOf(requireContext().getThemeColor(R.attr.colorPrimary))
         preferences.forEach { preference ->
             preference?.icon?.setTintList(iconTint)

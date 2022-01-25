@@ -62,11 +62,11 @@ class ColorPickerFragment: Fragment() {
 
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext())
 
-        val color = when(useSystemAccent) {
+        val color = when (useSystemAccent(context)) {
             true -> Colour(toHex(requireContext().getColorAccent()), "")
             false -> Colour(toHex(requireContext().getThemeColor(R.attr.colorPrimary)), "")
         }
-        setPreview(binding, color,true)
+        setPreview(binding, color, true)
 
         var separateAccents = sharedPreferences.getBoolean("separate_accent", false)
         if (SDK_INT < Q) separateAccents = false

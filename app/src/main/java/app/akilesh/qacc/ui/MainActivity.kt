@@ -31,9 +31,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class MainActivity: AppCompatActivity() {
 
-    val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)!!
-    val useSystemAccent = sharedPreferences.getBoolean("system_accent", false)
-
     private lateinit var binding: ActivityMainBinding
     private lateinit var appUpdaterUtils: AppUpdaterUtils
 
@@ -44,7 +41,9 @@ class MainActivity: AppCompatActivity() {
 
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
-        val color =  if (useSystemAccent) getColorAccent() else getThemeColor(R.attr.colorPrimary)
+        val useSystemAccent =
+            PreferenceManager.getDefaultSharedPreferences(this).getBoolean("system_accent", false)
+        val color = if (useSystemAccent) getColorAccent() else getThemeColor(R.attr.colorPrimary)
         setColor(color)
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment

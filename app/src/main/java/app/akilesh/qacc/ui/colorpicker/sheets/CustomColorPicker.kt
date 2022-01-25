@@ -64,7 +64,7 @@ class CustomColorPicker : BottomSheetDialogFragment() {
 
         val prevHex = previousStateHandle?.get<String>(customHex)
         val color = if (prevHex != null && prevHex.isNotBlank()) Color.parseColor(prevHex)
-        else if(useSystemAccent) requireContext().getColorAccent()
+        else if (useSystemAccent(context)) requireContext().getColorAccent()
         else requireContext().getThemeColor(R.attr.colorPrimary)
 
         colorSpaceViewModel.selectColor(color)

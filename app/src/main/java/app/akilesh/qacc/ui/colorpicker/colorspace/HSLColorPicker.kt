@@ -77,8 +77,8 @@ class HSLColorPicker : Fragment() {
         )
 
         if (viewModel.selectedColor.value == null) {
-            val color = if(useSystemAccent) requireContext().getColorAccent()
-                else requireContext().getThemeColor(R.attr.colorPrimary)
+            val color = if (useSystemAccent(context)) requireContext().getColorAccent()
+            else requireContext().getThemeColor(R.attr.colorPrimary)
             setPickerColor(color)
         }
     }
